@@ -1,0 +1,118 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+\setcounter{section}{4}
+
+\begin{document}
+
+\section{Nivå 3}
+
+
+
+%% Middels til vanskelig, god og ikke for kompleks
+\bigskip
+\subsection{Øvelse} \label{ex:hard:1}
+Bevis at fra \(p \land (q \lor r)\) kan man konkludere \((p \land q) \lor (p \land r)\).
+
+%% Ganske vanskelig men god
+\bigskip
+\subsection{Øvelse} \label{ex:hard:2}
+Bevis at fra \((p \land q) \to r\) kan man konkludere \(p \to (q \to r)\).
+
+%% Ganske vanskelig
+\bigskip
+\subsection{Øvelse} \label{ex:hard:3}
+Vis at \(\lnot (p \to q) \to p\).
+
+Her kan vi vise at dette er en logisk sannhet.
+
+
+
+
+\newpage
+\subsection{Løsningsforslag}
+
+%% Middels til vanskelig, god og ikke for kompleks
+\bigskip
+\subsubsection{Øvelse \ref{ex:hard:1}} \label{ex:hard:1:solution}
+Bevis at fra \(p \land (q \lor r)\) kan man konkludere \((p \land q) \lor (p \land r)\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{p \land (q \lor r)}
+  \have{2}{p} \ae{1}
+  \have{3}{q \lor r} \ae{1}
+  \open
+    \hypo{4}{q}
+    \have{5}{p \land q} \ai{2,4}
+    \have{6}{(p \land q) \lor (p \land r)} \oi{5}
+  \close
+  \open
+    \hypo{7}{r}
+    \have{8}{p \land r} \ai{2,7}
+    \have{9}{(p \land q) \lor (p \land r)} \oi{8}
+  \close
+  \have{10}{(p \land q) \lor (p \land r)} \oe{3,4-6,7-9}
+\end{nd}
+\]
+
+
+
+%% Ganske vanskelig men god
+\bigskip
+\subsubsection{Øvelse \ref{ex:hard:2}} \label{ex:hard:2:solution}
+Bevis at fra \((p \land q) \to r\) kan man konkludere \(p \to (q \to r)\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{(p \land q) \to r}
+  \open
+    \hypo{2}{p}
+    \open
+      \hypo{3}{q}
+      \have{4}{p \land q} \ai{2,3}
+      \have{5}{r} \ie{4,1}
+    \close
+    \have{6}{q \to r} \ii{3-5}
+  \close
+  \have{7}{p \to (q \to r)} \ii{2-6}
+\end{nd}
+\]
+
+%% Ganske vanskelig
+\bigskip
+\subsubsection{Øvelse \ref{ex:hard:3}} \label{ex:hard:3:solution}
+Vis at \(\lnot (p \to q) \to p\).
+
+Her kan vi vise at dette er en logisk sannhet.
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+    \open
+  \hypo{1}{\lnot (p \to q)}
+  \open
+    \hypo{2}{\lnot p}
+    \open
+      \hypo{3}{p}
+      \open
+      \hypo{4}{\lnot q}
+        \have{5}{p} \r{3}
+        \have{6}{\lnot p} \r{2} 
+        \close
+        \have{7}{q} \ne{4-6}
+        \close
+        \have {8}{p \to q} \ii{3-7}
+        \have {9}{\lnot (p \to q)} \r{1}
+        \close
+        \have{10}{p} \ne{2-9}
+        \close
+        \have{11}{\lnot (p \to q) \to p} \ii{1-10}
+\end{nd}
+\]
+
+
+\end{document}

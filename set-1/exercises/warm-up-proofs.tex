@@ -1,0 +1,120 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+\setcounter{section}{1}
+
+\begin{document}
+
+\section{Oppvarmingsoppgaver}
+
+\bigskip
+\subsection{Øvelse} \label{ex:oppvarming:1}
+Vis at fra \(p\) og \(q\) kan man konkludere \(p \land q\).
+
+
+\bigskip
+\subsection{Øvelse} \label{ex:oppvarming:2}
+Vis at fra \(p \land q\) kan man konkludere \(p\).
+
+
+
+\bigskip
+\subsection{Øvelse} \label{ex:oppvarming:3}
+Vis at fra \(p\) kan man konkludere \(p \lor q\).
+
+
+\bigskip
+\subsection{Øvelse} \label{ex:oppvarming:4}
+Vis at \(p \to p\).
+
+
+\bigskip
+\subsection{Øvelse} \label{ex:oppvarming:5}
+Vis at fra \(p\) og \(p \to q\) kan man konkludere \(q\).
+
+
+
+
+\newpage
+\subsection{Løsningsforslag}
+
+% Øvelse 1: Konjunksjonsintroduksjon (∧I)
+\bigskip
+\subsubsection{Øvelse \ref{ex:oppvarming:1}} \label{ex:oppvarming:1:solution}
+Vis at fra \(p\) og \(q\) kan man konkludere \(p \land q\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \hypo{1}{p}
+  \hypo{2}{q}
+  \have{3}{p} \r{1}
+  \have{4}{q} \r{2}
+  \have{5}{p \land q} \ai{3,4}
+\end{nd}
+\]
+
+
+% Øvelse 2: Konjunksjonseleminering (∧E)
+\bigskip
+\subsubsection{Øvelse \ref{ex:oppvarming:2}} \label{ex:oppvarming:2:solution}
+Vis at fra \(p \land q\) kan man konkludere \(p\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \hypo{1}{p \land q}
+  \have{2}{p} \ae{1}
+\end{nd}
+\]
+
+
+% Øvelse 3: Disjunksjonsintroduksjon (∨I)
+\bigskip
+\subsubsection{Øvelse \ref{ex:oppvarming:3}} \label{ex:oppvarming:3:solution}
+Vis at fra \(p\) kan man konkludere \(p \lor q\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \hypo{1}{p}
+  \have{2}{p \lor q} \oi{1}
+\end{nd}
+\]
+
+
+% Øvelse 5: Impliksjonsintroduksjon (→I)
+\bigskip
+\subsubsection{Øvelse \ref{ex:oppvarming:4}} \label{ex:oppvarming:4:solution}
+Vis at \(p \to p\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \open
+    \hypo{1}{p}
+    \have{2}{p} \r{1}
+  \close
+  \have{3}{p \to p} \ii{1-2}
+\end{nd}
+\]
+
+
+% Øvelse 6: Impliksjonseleminering (→E)
+\bigskip
+\subsubsection{Øvelse \ref{ex:oppvarming:5}} \label{ex:oppvarming:5:solution}
+Vis at fra \(p\) og \(p \to q\) kan man konkludere \(q\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \hypo{1}{p}
+  \hypo{2}{p \to q}
+  \have{3}{q} \ie{1,2}
+\end{nd}
+\]
+
+
+
+\end{document}

@@ -1,0 +1,106 @@
+\documentclass[
+    12pt
+    ]{report}
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=25.4mm,
+ bottom=25.4mm
+}
+
+\usepackage{microtype}
+\usepackage{changepage} % Allows for the adjustwidth environment
+\usepackage{csquotes} % Adds support for quotation?
+\usepackage{xcharter} % Sets font to a nice one
+\usepackage{amssymb} % Adds div symbols like \square
+
+\setcounter{secnumdepth}{2} %disables the section numbering
+\setcounter{tocdepth}{3}
+
+% Selects spacing
+\usepackage{setspace}
+\onehalfspacing
+\setstretch{1.5} % For Microsoft Word like spacing
+
+\usepackage{needspace} % For keeping sections together
+\usepackage[main=norsk,english]{babel}
+
+
+%Fix section spacing
+\usepackage[explicit]{titlesec}
+\titlespacing{\section}{0pt}{70pt}{\parskip}
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{#1} % formats chapters
+\titlespacing{\chapter}{0pt}{0pt}{0pt}
+
+
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0em}{#1 \thesubsection}
+
+
+\usepackage[skip=10pt, indent=0pt]{parskip} % Sets the spacing between paragraphs
+
+
+\title{Oppgavesett 1\\ \large naturlig deduksjon av setningslogikk}
+\author{Severin Gartland og OpenAI o3-mini}
+\date{28.02.2025}
+
+\usepackage{hyperref} % Needed for Pandoc sections, also hides the colorboxes on citations
+
+% \newcommand{\reit}[1]{\by{\ndref{#1} Reit}{}}
+
+% \input{helpers/fitch-setup} % Sets up the fitch environment
+
+\newcommand{\myrules}{
+    \ndrules
+    \def\r{\by{Reit}}
+    \def\ai{\by{$\land$Intro}}
+    \def\ae{\by{$\land$Elim}}
+    \def\oi{\by{$\lor$Intro}}
+    \def\oe{\by{$\lor$Elim}}
+    \def\ii{\by{$\to$Intro}}
+    \def\ie{\by{$\to$Elim}}
+    \def\ni{\by{$\neg$Intro}}
+    \def\dne{\by{DN Elim}}
+    \def\bi{\by{$\leftrightarrow$Intro}}
+    \def\be{\by{$\leftrightarrow$Elim}}
+    \def\botI{\by{INVALID MOVE}} % To Handle common GPT error
+    \def\botE{\by{INVALID MOVE}} % To Handle common GPT error
+    \def\raa{\by{INVALID MOVE}} % To Handle common GPT error
+}
+\newcommand{\myformat}[2]{#2 #1}
+\usepackage[rules=myrules,justformat=myformat]{fitch}
+
+
+\hypersetup{
+        pdfauthor={\theauthor},
+    hidelinks,
+        pdfcreator={LaTeX}
+}
+
+
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[L]{\thedate}
+    \fancyfoot[R]{\thepage}
+    \fancyhead[R]{\theauthor}
+    \fancyhead[L]{Oppgavesett 1}
+}
+\pagestyle{plain}
+
+
+\usepackage{subfiles}
+  
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\subfile{set-1/set-1.tex}
+
+\end{document}

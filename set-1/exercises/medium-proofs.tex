@@ -1,0 +1,138 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+\setcounter{section}{3}
+
+\begin{document}
+
+\section{Nivå 2}
+
+
+
+
+%% God, middels vanskelig
+\bigskip
+\subsection{Øvelse} \label{ex:medium:1}
+Bevis at fra \(p \to (q \to r)\) kan man konkludere \((p \land q) \to r\).
+
+
+
+%% Fin, medium vanskelig
+\bigskip
+\subsection{Øvelse} \label{ex:medium:2}
+Bevis at fra \(p \lor q\), \(p \to r\) og \(q \to r\) kan man konkludere \(r\).
+
+
+
+%% Litt overraskende, men kul, middels vanskelig??
+\bigskip
+\subsection{Øvelse} \label{ex:medium:3}
+Bevis at fra \(p \to q\) og \(\lnot q\) kan man konkludere \(\lnot p\).
+
+
+
+\bigskip
+\subsection{Øvelse} \label{ex:medium:4}
+Vis at \(\neg(p \land q) \to (\neg p \lor \neg q)\).
+
+
+
+
+
+
+
+
+\newpage
+\subsection{Løsningsforslag}
+
+
+%% God, middels vanskelig
+\bigskip
+\subsubsection{Øvelse \ref{ex:medium:1}} \label{ex:medium:1:solution}
+Bevis at fra \(p \to (q \to r)\) kan man konkludere \((p \land q) \to r\).
+
+\subsubsection*{Bevis}
+\[
+    \begin{nd}
+        \hypo{1}{p \to (q \to r)}
+        \open
+        \hypo{2}{p \land q}
+        \have{3}{p} \ae{2}
+        \have{4}{q} \ae{2}
+        \have{5}{q \to r} \ie{3,1}
+        \have{6}{r} \ie{4,5}
+        \close
+        \have{7}{(p \land q) \to r} \ii{2-6}
+    \end{nd}
+\]
+
+
+
+%% Fin, medium vanskelig
+\bigskip
+\subsubsection{Øvelse \ref{ex:medium:2}} \label{ex:medium:2:solution}
+Bevis at fra \(p \lor q\), \(p \to r\) og \(q \to r\) kan man konkludere \(r\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{p \lor q}
+  \hypo{2}{p \to r}
+  \hypo{3}{q \to r}
+  \open
+    \hypo{4}{p}
+    \have{5}{r} \ie{4,2}
+  \close
+  \open
+    \hypo{6}{q}
+    \have{7}{r} \ie{6,3}
+  \close
+  \have{8}{r} \oe{1,4-5,6-7}
+\end{nd}
+\]
+
+%% Litt overraskende, men kul, middels vanskelig??
+\bigskip
+\subsubsection{Øvelse \ref{ex:medium:3}} \label{ex:medium:3:solution}
+Bevis at fra \(p \to q\) og \(\lnot q\) kan man konkludere \(\lnot p\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{p \to q}
+  \hypo{2}{\lnot q}
+  \open
+    \hypo{3}{p}
+    \have{4}{q} \ie{3,1}
+    \have{5}{\lnot q} \r{2}
+  \close
+  \have{6}{\lnot p} \ni{3-5}
+\end{nd}
+\]
+
+
+\bigskip
+\subsubsection{Øvelse \ref{ex:medium:4}} \label{ex:medium:4:solution}
+Vis at \(\neg(p \land q) \to (\neg p \lor \neg q)\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \open
+  \hypo {1} {\neg(p \land q)} 
+  \open
+  \hypo {2} {p}
+  \have {3} {p \land q} \ai{1,2}
+  \have {4} {\neg(p \land q)} \r{1}
+  \close
+  \have {5} {\neg p} \ni{2-4}
+  \have {6} {\neg p \lor \neg q} \oi{5}
+  \close
+  \have {7} {\neg(p \land q) \to (\neg p \lor \neg q)} \ii{1-6}
+
+\end{nd}
+\]
+
+
+\end{document}

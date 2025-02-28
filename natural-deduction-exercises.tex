@@ -1,0 +1,439 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\begin{document}
+
+\title{AI genererte øvingoppgaver for naturlig deduksjon}
+\author{OpenAI o3-mini | Severin}
+\date{25.02.2025}
+\maketitle
+
+\begin{abstract}
+    Her er noen oppgaver av varierende omfang, de er organisert fra korte bevis til lange. De er generert av en AI model, så jeg kan ikke garantere at de ikke inneholder noen feil; men jeg håper de kan være nyttig om noen trenger ett supplement til seminar-oppgavene.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+\section{Oppgaver}
+\subsection{I. 5-Line Proofs}
+
+\bigskip
+\textbf{Exercise 1 (Conjunction Introduction):}\\[0.3em]
+Show that from \(p\) and \(q\), one may conclude \(p\land q\). 
+
+\bigskip
+\textbf{Exercise 2 (Modus Ponens):}\\[0.3em]
+Show that from \(p\) and \(p\to q\), one may conclude \(q\).
+
+
+\bigskip
+\textbf{Exercise 3 (Disjunction Introduction):}\\[0.3em]
+Show that from \(p\), one may conclude \(p\lor r\).
+
+
+\bigskip
+\textbf{Exercise 4 (Conditional Introduction):}\\[0.3em]
+Prove that \(p\to p\).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{II. 8‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 5 (Disjunction Elimination):}\\[0.3em]
+Show that from \(p\lor q\), \(p\to r\), and \(q\to r\), one may conclude \(r\).
+
+
+\bigskip
+\textbf{Exercise 6 (Nested Conditional Introduction):}\\[0.3em]
+Prove that \(p\to (q\to (p\land q))\).
+
+
+\bigskip
+\textbf{Exercise 7 (Double Negation Introduction):}\\[0.3em]
+Prove that \(p\to \lnot\lnot p\).
+
+
+\bigskip
+\textbf{Exercise 8 (Chain Implication):}\\[0.3em]
+Show that from the assumption \(p\) (to be discharged) and the premises \(p\to q\) and \(q\to r\), one may conclude \(p\to r\).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{III. 10‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 9 (Symmetry of Conjunction):}\\[0.3em]
+Prove that \((p\land q)\to (q\land p)\).
+
+
+\bigskip
+\textbf{Exercise 10 (Hypothetical Syllogism):}\\[0.3em]
+Prove that 
+\[
+(p\to q)\to ((q\to r)\to (p\to r)).
+\]
+
+
+\bigskip
+\textbf{Exercise 11 (Explosion):}\\[0.3em]
+Prove that \(\lnot p\to (p\to q)\).
+
+
+\bigskip
+\textbf{Exercise 12 (Curry-Style Implication):}\\[0.3em]
+Prove that 
+\[
+(p\to (q\to r))\to ((p\to q)\to (p\to r)).
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\subsection{IV. 14‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 13 (Distribution over Conjunction):}\\[0.3em]
+Prove that 
+\[
+((p\to q)\land (r\to s))\to ((p\land r)\to (q\land s)).
+\]
+
+
+\bigskip
+\textbf{Exercise 14 (Disjunction Elimination – Expanded):}\\[0.3em]
+Show that from \(p\lor q\), \(p\to r\), and \(q\to r\), one may conclude \(r\).
+
+\bigskip
+\textbf{Exercise 15 (De Morgan – One Direction):}\\[0.3em]
+Prove that \(\lnot(p\land q)\to (p\to \lnot q)\).
+
+\bigskip
+\textbf{Exercise 16 (Contrapositive Chain):}\\[0.3em]
+Prove that \(((p\to q)\land (q\to \lnot r))\to (r\to \lnot p)\).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section{Fasit}
+
+\subsection{I. 5-Line Proofs}
+
+\bigskip
+\textbf{Exercise 1 (Conjunction Introduction):}\\[0.3em]
+Show that from \(p\) and \(q\), one may conclude \(p\land q\). 
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \(p\) \quad \quad \quad (Premise)\\[0.5em]
+2. \quad \(q\) \quad \quad \quad (Premise)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(q\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+5. \quad \(p\land q\) \quad (Conjunction Introduction on 3 and 4)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 2 (Modus Ponens):}\\[0.3em]
+Show that from \(p\) and \(p\to q\), one may conclude \(q\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \(p\) \quad \quad \quad (Premise)\\[0.5em]
+2. \quad \(p\to q\) \quad \ (Premise)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(p\to q\) \quad \ (Reiteration of 2)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (\(\to\)-Elimination on 3 and 4)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 3 (Disjunction Introduction):}\\[0.3em]
+Show that from \(p\), one may conclude \(p\lor r\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \(p\) \quad \quad \quad (Premise)\\[0.5em]
+2. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+5. \quad \(p\lor r\) \quad \ (Disjunction Introduction on 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 4 (Conditional Introduction):}\\[0.3em]
+Prove that \(p\to p\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\) \quad (Assumption)\\[0.5em]
+2. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+5. \quad \(p\to p\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{II. 8‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 5 (Disjunction Elimination):}\\[0.3em]
+Show that from \(p\lor q\), \(p\to r\), and \(q\to r\), one may conclude \(r\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \(p\lor q\) \quad \quad \quad (Premise)\\[0.5em]
+2. \quad \(p\to r\) \quad \quad \quad (Premise)\\[0.5em]
+3. \quad \(q\to r\) \quad \quad \quad (Premise)\\[0.5em]
+4. \quad \textbf{Assume } \(p\) \quad \quad (Assumption)\\[0.5em]
+5. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 2 and 4)\\[0.5em]
+6. \quad \textbf{Assume } \(q\) \quad \quad (Assumption)\\[0.5em]
+7. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 3 and 6)\\[0.5em]
+8. \quad \(r\) \quad \quad \quad (Disjunction Elimination on 1, with subproofs 4–5 and 6–7)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 6 (Nested Conditional Introduction):}\\[0.3em]
+Prove that \(p\to (q\to (p\land q))\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(q\) \quad \quad (Assumption)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(q\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+5. \quad \(p\land q\) \quad \quad (\(\land\)-Introduction on 3 and 4)\\[0.5em]
+6. \quad \(p\land q\) \quad \quad (Reiteration of 5)\\[0.5em]
+7. \quad \(q\to (p\land q)\) \quad (\(\to\)-Introduction, discharging 2)\\[0.5em]
+8. \quad \(p\to (q\to (p\land q))\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 7 (Double Negation Introduction):}\\[0.3em]
+Prove that \(p\to \lnot\lnot p\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(\lnot p\) \quad \quad (Assumption)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+5. \quad \(\bot\) \quad \quad (Contradiction from 2 and 3)\\[0.5em]
+6. \quad \(\lnot\lnot p\) \quad \ (\(\lnot\)-Introduction, discharging 2)\\[0.5em]
+7. \quad \(\lnot\lnot p\) \quad \ (Reiteration of 6)\\[0.5em]
+8. \quad \(p\to \lnot\lnot p\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 8 (Chain Implication):}\\[0.3em]
+Show that from the assumption \(p\) (to be discharged) and the premises \(p\to q\) and \(q\to r\), one may conclude \(p\to r\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \(p\to q\) \quad \quad \quad (Premise)\\[0.5em]
+3. \quad \(q\to r\) \quad \quad \quad (Premise)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 1)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (\(\to\)-Elimination on 2 and 4)\\[0.5em]
+6. \quad \(q\) \quad \quad \quad (Reiteration of 5)\\[0.5em]
+7. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 3 and 6)\\[0.5em]
+8. \quad \(p\to r\) \quad \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{III. 10‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 9 (Symmetry of Conjunction):}\\[0.3em]
+Prove that \((p\land q)\to (q\land p)\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\land q\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \(p\) \quad \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+3. \quad \(q\) \quad \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (Reiteration of 3)\\[0.5em]
+6. \quad \(p\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+7. \quad \(q\) \quad \quad \quad (Reiteration of 3)\\[0.5em]
+8. \quad \(q\land p\) \quad \quad (\(\land\)-Introduction on 3 and 4)\\[0.5em]
+9. \quad \(q\land p\) \quad \quad (Reiteration of 8)\\[0.5em]
+10. \quad \((p\land q)\to (q\land p)\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 10 (Hypothetical Syllogism):}\\[0.3em]
+Prove that 
+\[
+(p\to q)\to ((q\to r)\to (p\to r)).
+\]
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\to q\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(q\to r\) \quad \quad (Assumption)\\[0.5em]
+3. \quad \textbf{Assume } \(p\) \quad \quad \quad (Assumption)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 3)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (\(\to\)-Elimination on 1 and 4)\\[0.5em]
+6. \quad \(q\) \quad \quad \quad (Reiteration of 5)\\[0.5em]
+7. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 2 and 6)\\[0.5em]
+8. \quad \(r\) \quad \quad \quad (Reiteration of 7)\\[0.5em]
+9. \quad \(p\to r\) \quad \quad (\(\to\)-Introduction, discharging 3)\\[0.5em]
+10. \quad \((p\to q)\to ((q\to r)\to (p\to r))\) \quad (\(\to\)-Introduction, discharging 1 and 2)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 11 (Explosion):}\\[0.3em]
+Prove that \(\lnot p\to (p\to q)\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(\lnot p\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(p\) \quad \quad \quad (Assumption)\\[0.5em]
+3. \quad \(p\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+4. \quad \(\lnot p\) \quad \quad (Reiteration of 1)\\[0.5em]
+5. \quad \(\bot\) \quad \quad (Contradiction from 3 and 4)\\[0.5em]
+6. \quad \(q\) \quad \quad \quad (Explosion from 5)\\[0.5em]
+7. \quad \(q\) \quad \quad \quad (Reiteration of 6)\\[0.5em]
+8. \quad \(p\to q\) \quad \quad (\(\to\)-Introduction, discharging 2)\\[0.5em]
+9. \quad \(p\to q\) \quad \quad (Reiteration of 8)\\[0.5em]
+10. \quad \(\lnot p\to (p\to q)\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 12 (Curry-Style Implication):}\\[0.3em]
+Prove that 
+\[
+(p\to (q\to r))\to ((p\to q)\to (p\to r)).
+\]
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(p\to (q\to r)\) \quad \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(p\to q\) \quad \quad \quad (Assumption)\\[0.5em]
+3. \quad \textbf{Assume } \(p\) \quad \quad \quad \ (Assumption)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 3)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (\(\to\)-Elimination on 2 and 3)\\[0.5em]
+6. \quad \(q\to r\) \quad \quad (\(\to\)-Elimination on 1 and 3)\\[0.5em]
+7. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 6 and 5)\\[0.5em]
+8. \quad \(r\) \quad \quad \quad (Reiteration of 7)\\[0.5em]
+9. \quad \(p\to r\) \quad \quad (\(\to\)-Introduction, discharging 3)\\[0.5em]
+10. \quad \((p\to (q\to r))\to ((p\to q)\to (p\to r))\) \quad (\(\to\)-Introduction, discharging 1 and 2)
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{IV. 14‐Line Proofs}
+
+\bigskip
+\textbf{Exercise 13 (Distribution over Conjunction):}\\[0.3em]
+Prove that 
+\[
+((p\to q)\land (r\to s))\to ((p\land r)\to (q\land s)).
+\]
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \((p\to q)\land (r\to s)\) \quad \ (Assumption)\\[0.5em]
+2. \quad \(p\to q\) \quad \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+3. \quad \(r\to s\) \quad \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+4. \quad \textbf{Assume } \(p\land r\) \quad \quad \ (Assumption)\\[0.5em]
+5. \quad \(p\) \quad \quad \quad (\(\land\)-Elimination on 4)\\[0.5em]
+6. \quad \(r\) \quad \quad \quad (\(\land\)-Elimination on 4)\\[0.5em]
+7. \quad \(p\to q\) \quad \quad \ (Reiteration of 2)\\[0.5em]
+8. \quad \(q\) \quad \quad \quad (\(\to\)-Elimination on 7 and 5)\\[0.5em]
+9. \quad \(r\to s\) \quad \quad \ (Reiteration of 3)\\[0.5em]
+10. \quad \(s\) \quad \quad \quad (\(\to\)-Elimination on 9 and 6)\\[0.5em]
+11. \quad \(q\land s\) \quad \quad (\(\land\)-Introduction on 8 and 10)\\[0.5em]
+12. \quad \(q\land s\) \quad \quad (Reiteration of 11)\\[0.5em]
+13. \quad \((p\land r)\to (q\land s)\) \quad (\(\to\)-Introduction, discharging 4)\\[0.5em]
+14. \quad \(((p\to q)\land (r\to s))\to ((p\land r)\to (q\land s))\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 14 (Disjunction Elimination – Expanded):}\\[0.3em]
+Show that from \(p\lor q\), \(p\to r\), and \(q\to r\), one may conclude \(r\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \(p\lor q\) \quad \quad \quad (Premise)\\[0.5em]
+2. \quad \(p\to r\) \quad \quad \quad (Premise)\\[0.5em]
+3. \quad \(q\to r\) \quad \quad \quad (Premise)\\[0.5em]
+4. \quad \textbf{Assume } \(p\) \quad \quad \ (Assumption)\\[0.5em]
+5. \quad \(p\) \quad \quad \quad (Reiteration of 4)\\[0.5em]
+6. \quad \(p\to r\) \quad \quad \ (Reiteration of 2)\\[0.5em]
+7. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 5 and 6)\\[0.5em]
+8. \quad \(r\) \quad \quad \quad (Reiteration of 7)\\[0.5em]
+9. \quad \textbf{Assume } \(q\) \quad \quad \ (Assumption)\\[0.5em]
+10. \quad \(q\) \quad \quad \quad (Reiteration of 9)\\[0.5em]
+11. \quad \(q\to r\) \quad \quad \ (Reiteration of 3)\\[0.5em]
+12. \quad \(r\) \quad \quad \quad (\(\to\)-Elimination on 10 and 11)\\[0.5em]
+13. \quad \(r\) \quad \quad \quad (Reiteration of 12)\\[0.5em]
+14. \quad \(r\) \quad \quad \quad (Disjunction Elimination on 1, with subproofs 4–8 and 9–13)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 15 (De Morgan – One Direction):}\\[0.3em]
+Prove that \(\lnot(p\land q)\to (p\to \lnot q)\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \(\lnot(p\land q)\) \quad (Assumption)\\[0.5em]
+2. \quad \textbf{Assume } \(p\) \quad \quad \quad (Assumption)\\[0.5em]
+3. \quad \textbf{Assume } \(q\) \quad \quad \quad (Assumption)\\[0.5em]
+4. \quad \(p\) \quad \quad \quad (Reiteration of 2)\\[0.5em]
+5. \quad \(q\) \quad \quad \quad (Reiteration of 3)\\[0.5em]
+6. \quad \(p\land q\) \quad \quad (\(\land\)-Introduction on 4 and 5)\\[0.5em]
+7. \quad \(\lnot(p\land q)\) \quad (Reiteration of 1)\\[0.5em]
+8. \quad \(\bot\) \quad \quad \quad (Contradiction from 6 and 7)\\[0.5em]
+9. \quad \(\bot\) \quad \quad \quad (Reiteration of 8)\\[0.5em]
+10. \quad \(\lnot q\) \quad \quad (\(\lnot\)-Introduction, discharging 3)\\[0.5em]
+11. \quad \(\lnot q\) \quad \quad (Reiteration of 10)\\[0.5em]
+12. \quad \(p\to \lnot q\) \quad (\(\to\)-Introduction, discharging 2)\\[0.5em]
+13. \quad \(p\to \lnot q\) \quad \quad (Reiteration of 12)\\[0.5em]
+14. \quad \(\lnot(p\land q)\to (p\to \lnot q)\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+\bigskip
+\textbf{Exercise 16 (Contrapositive Chain):}\\[0.3em]
+Prove that \(((p\to q)\land (q\to \lnot r))\to (r\to \lnot p)\).
+
+\textbf{Proof:}
+\begin{tabbing}
+\hspace*{2cm}\= \kill
+1. \quad \textbf{Assume } \((p\to q)\land (q\to \lnot r)\) \quad (Assumption)\\[0.5em]
+2. \quad \(p\to q\) \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+3. \quad \(q\to \lnot r\) \quad \quad (\(\land\)-Elimination on 1)\\[0.5em]
+4. \quad \textbf{Assume } \(r\) \quad \quad \ (Assumption)\\[0.5em]
+5. \quad \textbf{Assume } \(p\) \quad \quad \ (Assumption)\\[0.5em]
+6. \quad \(p\) \quad \quad (Reiteration of 5)\\[0.5em]
+7. \quad \(q\) \quad \quad ( \(\to\)-Elimination on 2 and 5)\\[0.5em]
+8. \quad \(q\) \quad \quad (Reiteration of 7)\\[0.5em]
+9. \quad \(\lnot r\) \quad \quad ( \(\to\)-Elimination on 3 and 8)\\[0.5em]
+10. \quad \(r\) \quad \quad (Reiteration of 4)\\[0.5em]
+11. \quad \(\bot\) \quad \quad (Contradiction from 9 and 10)\\[0.5em]
+12. \quad \(\lnot p\) \quad \quad (\(\lnot\)-Introduction, discharging 5)\\[0.5em]
+13. \quad \(r\to \lnot p\) \quad \quad (\(\to\)-Introduction, discharging 4)\\[0.5em]
+14. \quad \(((p\to q)\land (q\to \lnot r))\to (r\to \lnot p)\) \quad (\(\to\)-Introduction, discharging 1)
+\end{tabbing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

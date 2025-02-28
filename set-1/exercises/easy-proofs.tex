@@ -1,0 +1,149 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+\setcounter{section}{2}
+
+
+\begin{document}
+
+\section{Nivå 1}
+
+\bigskip
+\subsection{Øvelse} \label{ex:easy:1}
+Vis at \(p \to (p \lor q)\).
+
+
+% Øvelse 7: Negasjonsintroduksjon (¬I)
+\bigskip
+\subsection{Øvelse} \label{ex:easy:2}
+Vis at fra \(p \to q\) og \(\lnot q\) kan man konkludere \(\lnot p\).
+
+
+\bigskip
+\subsection{Øvelse}  \label{ex:easy:3}
+Vis at fra \(p \to q\), kan man konkludere \(\neg q \to \neg p\).
+
+
+%% Fin intro
+\bigskip
+\subsection{Øvelse} \label{ex:easy:4}
+Bevis at fra \(p \to q\) og \(q \to r\), kan man konkludere \(p \to r\).
+
+
+% Øvelse 4: Disjunksjonseleminering (∨E)
+\bigskip
+\subsection{Øvelse} \label{ex:easy:5}
+Vis at fra \(p \lor q\), \(p \to r\) og \(q \to r\) kan man konkludere \(r\).
+
+
+
+
+
+
+
+
+
+\newpage
+\subsection{Løsningsforslag}
+
+\bigskip
+\subsubsection{Øvelse \ref{ex:easy:1}} \label{ex:easy:1:solution}
+Vis at \(p \to (p \lor q)\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \open
+  \hypo {1} {p}
+  \have {2} {p \lor q} \oi{1}
+  \close
+  \have {3} {p \to (p \lor q)} \ii{1-3}
+\end{nd}
+\]
+
+% Øvelse 7: Negasjonsintroduksjon (¬I)
+\bigskip
+\subsubsection{Øvelse \ref{ex:easy:2}} \label{ex:easy:2:solution}
+Vis at fra \(p \to q\) og \(\lnot q\) kan man konkludere \(\lnot p\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{p \to q}
+  \hypo{2}{\lnot q}
+  \open
+    \hypo{3}{p}
+    \have{4}{q} \ie{3,1}
+    \have{5}{\lnot q} \r{2}
+  \close
+  \have{6}{\lnot p} \ni{3-5}
+\end{nd}
+\]
+
+\bigskip
+\subsubsection*{Øvelse \ref{ex:easy:3}} \label{ex:easy:3:solution}
+Vis at fra \(p \to q\), kan man konkludere \(\neg q \to \neg p\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo {1} {p \to q} 
+  \open
+  \hypo {2} {\neg q}
+  \open
+  \hypo {3} {p} 
+  \have {4} {q} \ie{1, 3}
+  \have {5} {\neg q} \r{2}
+  \close
+  \have {6} {\neg p} \ni{3-5}
+  \close
+  \have {7} {\neg q \to \neg p} \ii{2-6}
+\end{nd}
+\]
+
+
+%% Fin intro
+\bigskip
+\subsubsection{Øvelse \ref{ex:easy:4}} \label{ex:easy:4:solution}
+Bevis at fra \(p \to q\) og \(q \to r\), kan man konkludere \(p \to r\).
+
+\subsubsection*{Bevis}
+\[
+    \begin{nd}
+        \hypo{1}{p \to q}
+        \hypo{2}{q \to r}
+        \open
+        \hypo{3}{p}
+        \have{4}{q} \ie{3,1}
+        \have{5}{r} \ie{4,2}
+        \close
+        \have{6}{p \to r} \ii{3-5}
+    \end{nd}
+\]
+
+% Øvelse 4: Disjunksjonseleminering (∨E)
+\bigskip
+\subsubsection{Øvelse \ref{ex:easy:5}} \label{ex:easy:5:solution}
+Vis at fra \(p \lor q\), \(p \to r\) og \(q \to r\) kan man konkludere \(r\).
+
+\subsubsection*{Bevis}
+\[
+\begin{nd}
+  \hypo{1}{p \lor q}
+  \hypo{2}{p \to r}
+  \hypo{3}{q \to r}
+  \open
+    \hypo{4}{p}
+    \have{5}{r} \ie{4,2}
+  \close
+  \open
+    \hypo{6}{q}
+    \have{7}{r} \ie{6,3}
+  \close
+  \have{8}{r} \oe{1,4-5,6-7}
+\end{nd}
+\]
+
+
+\end{document}

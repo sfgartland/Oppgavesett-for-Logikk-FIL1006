@@ -1,0 +1,125 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+
+\begin{document}
+
+\section{I. Workin doc}
+
+\bigskip
+\subsubsection*{Øvelse 1 (Implikasjonsfjerning):}
+Vis at fra \(p \to q\) og \(p\), kan man konkludere \(q\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  1 \hypo {1} {p \to q} 
+  2 \hypo {2} {p}
+  3 \have {3} {q} \ie{1, 2}
+\end{nd}
+\]
+
+\bigskip
+\subsubsection*{Øvelse 3 (Demorgans lover):}
+Vis at \(\neg (p \land q) \to (\neg p \lor \neg q)\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  1 \open
+  2 \hypo {1} {\neg (p \land q)} 
+  3 \open
+  4 \hypo {2} {p}
+  5 \hypo {3} {q}
+  6 \have {4} {p \land q} \ai{2,3}
+  7 \have {5} {\bot} \ne{1,4}
+  8 \close
+  9 \have {6} {\neg p \lor \neg q} \oi{1-5}
+\end{nd}
+\]
+
+\bigskip
+\subsubsection*{Øvelse 4 (Dobbelnegasjon):}
+Vis at \(\neg(\neg p) \to p\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \open
+  \hypo {1} {\neg(\neg p)} 
+  \open
+  \hypo {2} {\neg p}
+  \have {3} {\bot} %\ee{1,2}
+  \close
+  \have {4} {p} \ne{2-5}
+\end{nd}
+\]
+
+% \bigskip
+% \subsubsection*{Øvelse 6 (Foreningsregel for mengder):}
+% Vis at \(A \subseteq B\) og \(B \subseteq C\) impliserer \(A \subseteq C\).
+
+% \subsubsection*{Bevis:}
+% \[
+% \begin{nd}
+%   \hypo {1} {A \subseteq B}
+%   \hypo {2} {B \subseteq C}
+%   \open
+%   \hypo {3} {x \in A}
+%   \have {4} {x \in B} \by{mengdeinkludering, 1, 3}
+%   \have {5} {x \in C} \by{mengdeinkludering, 2, 4}
+%   \close
+%   \have {6} {A \subseteq C} 
+% \end{nd}
+% \]
+
+
+\bigskip
+\subsubsection*{Øvelse 9 (Transitivitet av implikasjon):}
+Vis at \( (p \to q) \land (q \to r) \to (p \to r) \).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  1 \open
+  2 \hypo {1} {(p \to q) \land (q \to r)}
+  3 \have {2} {p \to q} \ae{1}
+  4 \have {3} {q \to r} \ae{1}
+  5 \open
+  6 \hypo {4} {p}
+  7 \have {5} {q} \ie{2,4}
+  8 \have {6} {r} \ie{3,5}
+  9 \close
+  10 \have {7} {p \to r} \ii{4-8}
+\end{nd}
+\]
+
+\bigskip
+\subsubsection*{Øvelse 10 (Kontrapositiv):}
+Vis at \((p \to q) \leftrightarrow (\neg q \to \neg p)\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  1 \open
+  2 \hypo {1} {p \to q}
+  3 \open
+  4 \hypo {2} {\neg q}
+  5 \have {3} {\neg p} %\mt{1,2}
+  6 \close
+  7 \have {4} {\neg q \to \neg p} \ii{2-5}
+  8 \close
+  9 \open
+  10 \hypo {5} {\neg q \to \neg p}
+  11 \open
+  12 \hypo {6} {p}
+  13 \have {7} {q} %\ee{6,5}
+  14 \close
+  15 \have {8} {p \to q} \ii{6-13}
+  16 \close
+  17 \have {9} {(p \to q) \leftrightarrow (\neg q \to \neg p)} %\bi{1-7,5-15}
+\end{nd}
+\]
+
+\end{document}

@@ -1,0 +1,67 @@
+% !TeX root = ..\main.tex
+\documentclass[../main.tex]{subfiles}
+
+\setcounter{chapter}{1}
+\setcounter{section}{5}
+
+\begin{document}
+
+\section{Uintuitive deduksjoner}
+
+%% Litt rar, kort men uintuitiv
+\bigskip
+\subsection{Øvelse} \label{ex:unintuitive:1}
+Bevis at fra \(p\) kan man konkludere \(q \to p\).
+
+%% Veldig uintiutiv men interessant
+\bigskip
+\subsection{Øvelse} \label{ex:unintuitive:2}
+Bevis at fra \(\lnot p\) kan man konkludere \(p \to q\).
+
+
+\newpage
+\subsection{Løsningsforslag}
+
+
+%% Litt rar, kort men uintuitiv
+\bigskip
+\subsubsection{Øvelse \ref{ex:unintuitive:1}} \label{ex:unintuitive:1:solution}
+Bevis at fra \(p\) kan man konkludere \(q \to p\).
+
+\subsubsection*{Bevis:}
+\[
+    \begin{nd}
+        \hypo{1}{p}
+        \have{2}{p} \r{1}
+        \open
+        \hypo{3}{q}
+        \have{4}{p} \r{2}
+        \close
+        \have{5}{q \to p} \ii{3-4}
+    \end{nd}
+\]
+
+
+%% Veldig uintiutiv men interessant
+\bigskip
+\subsubsection{Øvelse \ref{ex:unintuitive:2}} \label{ex:unintuitive:2:solution}
+Bevis at fra \(\lnot p\) kan man konkludere \(p \to q\).
+
+\subsubsection*{Bevis:}
+\[
+\begin{nd}
+  \hypo{1}{\lnot p}
+  \open
+    \hypo{2}{p}
+    \open
+    \hypo{3}{\lnot q}
+    \have{4}{\lnot p} \r{1}
+    \have{5}{p} \r{2}
+    \close
+    \have{6} {q} \ni{3-5}
+  \close
+  \have{5}{p \to q} \ii{2-4}
+\end{nd}
+\]
+
+\end{document}
