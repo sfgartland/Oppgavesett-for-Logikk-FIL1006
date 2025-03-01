@@ -15,7 +15,7 @@
 \usepackage{microtype}
 \usepackage{changepage} % Allows for the adjustwidth environment
 \usepackage{csquotes} % Adds support for quotation?
-\usepackage{xcharter} % Sets font to a nice one
+% \usepackage{xcharter} % Sets font to a nice one
 \usepackage{amssymb} % Adds div symbols like \square
 
 \setcounter{secnumdepth}{2} %disables the section numbering
@@ -94,6 +94,11 @@
 
 
 \usepackage{subfiles}
+
+
+\renewenvironment{abstract}{}%
+     {\par%\vfil\null\endtitlepage
+     }
   
 \begin{document}
 
