@@ -1,0 +1,125 @@
+\documentclass[
+    12pt
+    ]{report}
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=25.4mm,
+ right=25.4mm,
+ top=25.4mm,
+ bottom=25.4mm
+}
+
+\usepackage{microtype}
+\usepackage{changepage} % Allows for the adjustwidth environment
+\usepackage{csquotes} % Adds support for quotation?
+% \usepackage{xcharter} % Sets font to a nice one
+\usepackage{amssymb} % Adds div symbols like \square
+
+\setcounter{secnumdepth}{2} %disables the section numbering
+\setcounter{tocdepth}{3}
+
+% Selects spacing
+\usepackage{setspace}
+\onehalfspacing
+\setstretch{1.5} % For Microsoft Word like spacing
+
+\usepackage{needspace} % For keeping sections together
+\usepackage[main=norsk,english]{babel}
+
+
+%Fix section spacing
+\usepackage[explicit]{titlesec}
+\titlespacing{\section}{0pt}{70pt}{\parskip}
+\titleformat{\chapter}{\Huge\bfseries}{}{0pt}{#1} % formats chapters
+\titlespacing{\chapter}{0pt}{0pt}{0pt}
+
+
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0em}{#1 \thesubsection}
+
+
+\usepackage[skip=10pt, indent=0pt]{parskip} % Sets the spacing between paragraphs
+
+
+\title{Oppgavesett 1\\ \large naturlig deduksjon av setningslogikk\\ \Large \emph{Oppvarmingsoppgaver og Nivå 1}}
+\author{Severin Gartland og OpenAI o3-mini}
+\date{28.02.2025}
+
+\usepackage{hyperref} % Needed for Pandoc sections, also hides the colorboxes on citations
+
+% \newcommand{\reit}[1]{\by{\ndref{#1} Reit}{}}
+
+% \input{helpers/fitch-setup} % Sets up the fitch environment
+
+\newcommand{\myrules}{
+    \ndrules
+    \def\r{\by{Reit}}
+    \def\ai{\by{$\land$Intro}}
+    \def\ae{\by{$\land$Elim}}
+    \def\oi{\by{$\lor$Intro}}
+    \def\oe{\by{$\lor$Elim}}
+    \def\ii{\by{$\to$Intro}}
+    \def\ie{\by{$\to$Elim}}
+    \def\ni{\by{$\neg$Intro}}
+    \def\dne{\by{DN Elim}}
+    \def\bi{\by{$\leftrightarrow$Intro}}
+    \def\be{\by{$\leftrightarrow$Elim}}
+    \def\botI{\by{INVALID MOVE}} % To Handle common GPT error
+    \def\botE{\by{INVALID MOVE}} % To Handle common GPT error
+    \def\raa{\by{INVALID MOVE}} % To Handle common GPT error
+}
+\newcommand{\myformat}[2]{#2 #1}
+\usepackage[rules=myrules,justformat=myformat]{fitch}
+
+
+\hypersetup{
+        pdfauthor={\theauthor},
+    hidelinks,
+        pdfcreator={LaTeX}
+}
+
+
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    \fancyfoot[L]{\thedate}
+    \fancyfoot[R]{\thepage}
+    \fancyhead[R]{\theauthor}
+    \fancyhead[L]{Oppgavesett 1: Oppvarmingsoppgaver og Nivå 1}
+}
+\pagestyle{plain}
+
+
+\usepackage{subfiles}
+
+
+\renewenvironment{abstract}{}%
+     {\par%\vfil\null\endtitlepage
+     }
+  
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Oppgavesett 1: Oppvarmingsoppgaver og Nivå 1}
+
+\begin{abstract}
+    Hei, her er ett sett med oppgaver for naturlig deduksjon for setningslogikk. Dette er jo noe som ofte behøver mye mengdetrening for å mestres, så jeg håper at dette settet kunne muliggjøre det.
+
+    Oppgavesettet er delt inn i seksjoner basert på vanskelighetsgrad. Men inndelingen er ganske løs, så noen oppgaver kan være vanskeligere eller lettere enn nivået tilsier.
+
+
+    \bigskip
+    \emph{OBS!} En generativ AI modell (o3-mini fra OpenAI) ble brukt for å generere utkast til oppgaver, som da har blitt bearbeidet til de du finner i dette settet. Jeg har prøvd å gå over alle oppgavene og løsningsforslagene for å sikre at de er korrekte og forståelige, men jeg kan ikke garantere at oppgavene ikke inneholder feil eller er upresise. Håper likevel at det kommer til nytte.
+\end{abstract}
+
+\subfile{exercises/warm-up-proofs.tex}
+\newpage
+\subfile{exercises/easy-proofs.tex}
+
+\end{document}
